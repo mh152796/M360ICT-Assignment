@@ -1,6 +1,3 @@
-
-
-import 'package:m_360_assignment/src/core/routes/routes_name.dart';
 import 'package:m_360_assignment/src/feature/dashboard/view/widgets/build_top_container.dart';
 import 'package:m_360_assignment/src/feature/dashboard/view/widgets/place_card.dart';
 
