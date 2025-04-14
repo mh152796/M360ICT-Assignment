@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:m_360_assignment/src/core/helper/responsive_helper.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
@@ -23,8 +24,8 @@ class CustomTextField extends StatelessWidget {
           : inputType == TextInputType.visiblePassword ? [AutofillHints.password] : null,
       controller: controller,
       style: GoogleFonts.inter(
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
+        fontSize: ResponsiveHelper.isMobile(context)? 16 : 18,
+        fontWeight: FontWeight.w700,
         decoration: TextDecoration.none,
         color: Color.fromRGBO(0, 0, 0, 1),
       ),
@@ -37,12 +38,12 @@ class CustomTextField extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelStyle: GoogleFonts.poppins(
           fontWeight: FontWeight.w500,
-          fontSize: 12,
+          fontSize: ResponsiveHelper.isMobile(context)? 15 : 17,
           color: Color.fromRGBO(0, 0, 0, 1),
         ),
         hintText: hintText,
         hintStyle: GoogleFonts.inter(
-          fontSize: 16,
+          fontSize: ResponsiveHelper.isMobile(context)? 16 : 18,
           fontWeight: FontWeight.w400,
           color: Color.fromRGBO(214, 214, 214, 1),
         ),

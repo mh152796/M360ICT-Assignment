@@ -1,4 +1,4 @@
-package com.example.m_360_assignment
+package com.m360assignment.app
 
 import io.flutter.embedding.android.FlutterActivity
 

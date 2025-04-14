@@ -1,13 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:m_360_assignment/src/core/core_export.dart';
 import 'package:m_360_assignment/src/core/di/initialize_bindings.dart';
+import 'package:m_360_assignment/src/core/routes/routes.dart';
+import 'package:m_360_assignment/src/core/routes/routes_name.dart';
 import 'package:m_360_assignment/src/core/theme/app_theme.dart';
-import 'package:m_360_assignment/src/feature/auth/view/pages/sign_in_screen.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
    initializeAppBindings();
-
+  await Future.delayed(Duration(seconds: 1)); // optional loading delay
+  FlutterNativeSplash.remove();
   runApp(const MyApp());
+  configLoading();
 }
 
 class MyApp extends StatelessWidget {
@@ -17,9 +30,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      builder: EasyLoading.init(),
+      title: 'M360ICT',
       theme: AppTheme.appTheme,
-      home: SignInScreen(),
+      getPages: AppRoutes.appRoutes(),
+      initialRoute: Get.find<AuthController>().currentUser.value != null?
+      RoutesName.dashboardScreen : RoutesName.signInScreen,
     );
   }
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..dismissOnTap = false // Optional: Prevent dismissing on tap
+    ..userInteractions = false; // Disables all interactions
 }

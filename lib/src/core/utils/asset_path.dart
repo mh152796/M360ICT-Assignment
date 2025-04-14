@@ -1,5 +1,11 @@
 class AssetsPath{
   static String obscureEye = 'obscure_eye'.svg;
+  static String googleIcon = 'google_icon'.png;
+  static String facebookIcon = 'facebook_icon'.png;
+  static String microsoftIcon = 'microsoft_icon'.png;
+  static String homeIcon = 'home_icon'.png;
+  static String backArrow = 'back_arrow'.png;
+  static String appleIcon = 'apple_icon'.png;
 
  }
 

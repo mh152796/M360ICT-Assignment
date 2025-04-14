@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color kPrimary = Color.fromRGBO(255, 255, 255, 1);
 const Color kBlackColor = Color.fromRGBO(0, 0, 0, 1);
+const Color kGreenColor = Color.fromRGBO(71, 186, 128, 1);
 
 const List<Color> kLinearColor=[
  Color(0xFF6648BE),
