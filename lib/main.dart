@@ -17,7 +17,6 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
    initializeAppBindings();
-  await Future.delayed(Duration(seconds: 1)); // optional loading delay
   FlutterNativeSplash.remove();
   runApp(const MyApp());
   configLoading();

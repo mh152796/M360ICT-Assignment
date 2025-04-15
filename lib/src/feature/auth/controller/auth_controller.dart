@@ -38,7 +38,7 @@ class AuthController extends GetxController implements GetxService{
         );
         if (authCredential.user != null) {
           currentUser(authCredential.user);
-          Get.toNamed(RoutesName.signInScreen);
+          Get.toNamed(RoutesName.dashboardScreen);
         }
         else{
           EasyLoading.showError("Some thing went wrong");
